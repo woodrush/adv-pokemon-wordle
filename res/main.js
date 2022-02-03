@@ -42,6 +42,7 @@ function typekey(key) {
         }
     } else if (key == "enter") {
         update_box_row_color(["green", "yellow", "grey", "grey", "yellow"]);
+        add_box_row();
         return;
     } else if (curcol > 4) {
         return;
@@ -51,7 +52,6 @@ function typekey(key) {
     }
     update_box_row_text(str);
 }
-
 
 function update_box_row_color(colors) {
     for(let i=0; i<5; i++){
@@ -64,4 +64,19 @@ function update_box_row_color(colors) {
             box_text.classList.add("box-text-output");
         }
     }
+}
+
+function add_box_row() {
+    let board = document.getElementById("board");
+    let tr = document.createElement("tr");
+    currow += 1;
+    curcol = 0;
+    str = "";
+    for(let i=0; i<5; i++){
+        let td = document.createElement("td");
+        td.setAttribute("id", "box-" + currow + "-" + i);
+        td.setAttribute("class", "box-empty");
+        tr.appendChild(td);
+    }
+    board.appendChild(tr);
 }
