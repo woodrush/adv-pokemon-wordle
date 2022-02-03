@@ -1,0 +1,38 @@
+.enter-key {
+    height: 50px;
+    width: 5em;
+}
+
+.row {
+    margin-bottom: 3px;
+}
+
+.key {
+    height: 50px;
+    width: 2em;
+}
+
+.key-spacer {
+    height: 50px;
+    margin-left: 1.9em;
+}
+
+.keyboard-container {
+    margin: 1em auto;
+    text-align: center;
+}
+
+.board-container {
+    margin: 1em auto;
+    text-align: center;
+}
+
+.board {
+    text-align: center;
+}
+
+.box-empty {
+    background-color: #dcdcdc;
+    width: 3.5em;
+    height: 55px;
+}

@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>後出しポケモンWordle</title>
+    <script type="text/javascript" src="./res/main.js"></script>
+    <link href="./res/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="board-container">
+      <table class="board" align="center">
+        <tr>
+          <td class="box-empty"></td>
+          <td class="box-empty"></td>
+          <td class="box-empty"></td>
+          <td class="box-empty"></td>
+          <td class="box-empty"></td>
+        </tr>
+      </table>
+    </div>
+    <div class="keyboard-container">
+      <div class="keyboard">
+        <div class="row">
+          <button key="ワ" class="key" onClick="onClickKey(this);">ワ</button>  
+          <button key="ラ" class="key" onClick="onClickKey(this);">ラ</button>
+          <button key="ヤ" class="key" onClick="onClickKey(this);">ヤ</button>
+          <button key="マ" class="key" onClick="onClickKey(this);">マ</button>
+          <button key="ハ" class="key" onClick="onClickKey(this);">ハ</button>
+          <button key="ナ" class="key" onClick="onClickKey(this);">ナ</button>
+          <button key="タ" class="key" onClick="onClickKey(this);">タ</button>
+          <button key="サ" class="key" onClick="onClickKey(this);">サ</button>
+          <button key="カ" class="key" onClick="onClickKey(this);">カ</button>
+          <button key="ア" class="key" onClick="onClickKey(this);">ア</button>
+        </div>
+        <div class="row">
+          <span class="key-spacer"></span>
+          <button key="リ" class="key" onClick="onClickKey(this);">リ</button>
+          <span class="key-spacer"></span>
+          <button key="ミ" class="key" onClick="onClickKey(this);">ミ</button>
+          <button key="ヒ" class="key" onClick="onClickKey(this);">ヒ</button>
+          <button key="ニ" class="key" onClick="onClickKey(this);">ニ</button>
+          <button key="チ" class="key" onClick="onClickKey(this);">チ</button>
+          <button key="シ" class="key" onClick="onClickKey(this);">シ</button>
+          <button key="キ" class="key" onClick="onClickKey(this);">キ</button>
+          <button key="イ" class="key" onClick="onClickKey(this);">イ</button>
+        </div>
+        <div class="row">
+          <button key="ヲ" class="key" onClick="onClickKey(this);">ヲ</button>
+          <button key="ル" class="key" onClick="onClickKey(this);">ル</button>
+          <button key="ユ" class="key" onClick="onClickKey(this);">ユ</button>
+          <button key="ム" class="key" onClick="onClickKey(this);">ム</button>
+          <button key="フ" class="key" onClick="onClickKey(this);">フ</button>
+          <button key="ヌ" class="key" onClick="onClickKey(this);">ヌ</button>
+          <button key="ツ" class="key" onClick="onClickKey(this);">ツ</button>
+          <button key="ス" class="key" onClick="onClickKey(this);">ス</button>
+          <button key="ク" class="key" onClick="onClickKey(this);">ク</button>
+          <button key="ウ" class="key" onClick="onClickKey(this);">ウ</button>
+          </div>
+        <div class="row">
+          <span class="key-spacer"></span>
+          <button key="レ" class="key" onClick="onClickKey(this);">レ</button>
+          <span class="key-spacer"></span>
+          <button key="メ" class="key" onClick="onClickKey(this);">メ</button>
+          <button key="へ" class="key" onClick="onClickKey(this);">へ</button>
+          <button key="ネ" class="key" onClick="onClickKey(this);">ネ</button>
+          <button key="テ" class="key" onClick="onClickKey(this);">テ</button>
+          <button key="セ" class="key" onClick="onClickKey(this);">セ</button>
+          <button key="ケ" class="key" onClick="onClickKey(this);">ケ</button>
+          <button key="エ" class="key" onClick="onClickKey(this);">エ</button>
+        </div>
+        <div class="row">
+          <button key="ン" class="key" onClick="onClickKey(this);">ン</button>
+          <button key="ロ" class="key" onClick="onClickKey(this);">ロ</button>
+          <button key="ヨ" class="key" onClick="onClickKey(this);">ヨ</button>
+          <button key="モ" class="key" onClick="onClickKey(this);">モ</button>
+          <button key="ホ" class="key" onClick="onClickKey(this);">ホ</button>
+          <button key="ノ" class="key" onClick="onClickKey(this);">ノ</button>
+          <button key="ト" class="key" onClick="onClickKey(this);">ト</button>
+          <button key="ソ" class="key" onClick="onClickKey(this);">ソ</button>
+          <button key="コ" class="key" onClick="onClickKey(this);">コ</button>
+          <button key="オ" class="key" onClick="onClickKey(this);">オ</button>
+        </div>
+        <div class="row">
+          <button key="enter" class="enter-key" onClick="onClickKey(this);">Enter</button>
+          <button key="小" class="key" onClick="onClickKey(this);">小</button>
+          <button key="daku" class="key" onClick="onClickKey(this);">゛</button>
+          <button key="handaku" class="key" onClick="onClickKey(this);">゜</button>
+          <button key="ー" class="key" onClick="onClickKey(this);">ー</button>
+          <button key="bs" class="key" onClick="onClickKey(this);">&lt;x]</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
