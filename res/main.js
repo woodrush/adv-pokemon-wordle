@@ -75,7 +75,7 @@ function add_box_row() {
     for(let i=0; i<5; i++){
         let td = document.createElement("td");
         td.setAttribute("id", "box-" + currow + "-" + i);
-        td.setAttribute("class", "box-empty");
+        td.setAttribute("class", "box-base box-empty");
         tr.appendChild(td);
     }
     board.appendChild(tr);
