@@ -69,17 +69,20 @@
 
 .title {
     font-size: 1.2em;
+    vertical-align: center;
     margin-right: 1em;
+    margin-top: 0.6em;
 }
 
 .title-container {
-    max-width: 30em;
+    max-width: 22em;
     margin: 1em auto;
     text-align: center;
+    flex: 0 0 80px; display: flex; justify-content: end; gap: 2px;
 }
 
 .title-body {
-    max-width: 30em;
+    max-width: 22em;
     margin: 1em auto;
     /* margin: 1em auto; */
     /* text-align: center; */
@@ -157,4 +160,20 @@
 .box-text-output {
     color: rgb(255, 255, 255);
     font-size: 1.3em;
+}
+
+.settings-button-row {
+    display: flex;
+    gap: 5px;
+    justify-content: end;
+}
+
+.enter-button-row {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.invisible {
+    visibility: hidden;
 }

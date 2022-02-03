@@ -10,9 +10,11 @@
   <body onLoad="init()">
     <div class="title-container">
       <div class="title-body">
-        <span class="title"><b>後出しポケモンWordle</b></span>
-        <button class="settings-key" onClick=""><b>⚙️</b></button>
-        <button class="help-key" onClick="clickHelp()"><b>？</b></button>
+        <div class="settings-button-row">
+          <span class="title"><b>後出しポケモンWordle</b></span>
+          <button class="settings-key" onClick=""><b>⚙️</b></button>
+          <button class="help-key" onClick="clickHelp()"><b>？</b></button>
+        </div>
       </div>
     </div>
     <div id="game-container">
@@ -45,9 +47,9 @@
               <button key="ア" class="key" onClick="onClickKey(this);"><b>ア</b></button>
             </div>
             <div class="row">
-              <span class="key-spacer"></span>
+              <button class="key invisible">.</button>
               <button key="リ" class="key" onClick="onClickKey(this);"><b>リ</b></button>
-              <span class="key-spacer"></span>
+              <button class="key invisible">.</button>
               <button key="ミ" class="key" onClick="onClickKey(this);"><b>ミ</b></button>
               <button key="ヒ" class="key" onClick="onClickKey(this);"><b>ヒ</b></button>
               <button key="ニ" class="key" onClick="onClickKey(this);"><b>ニ</b></button>
@@ -70,9 +72,9 @@
               <button key="ウ" class="key" onClick="onClickKey(this);"><b>ウ</b></button>
               </div>
             <div class="row">
-              <span class="key-spacer"></span>
+              <button class="key invisible">.</button>
               <button key="レ" class="key" onClick="onClickKey(this);"><b>レ</b></button>
-              <span class="key-spacer"></span>
+              <button class="key invisible">.</button>
               <button key="メ" class="key" onClick="onClickKey(this);"><b>メ</b></button>
               <button key="へ" class="key" onClick="onClickKey(this);"><b>へ</b></button>
               <button key="ネ" class="key" onClick="onClickKey(this);"><b>ネ</b></button>
@@ -99,17 +101,17 @@
               <button key="ャ" class="key" onClick="onClickKey(this);"><b>ャ</b></button>
               <button key="パ" class="key" onClick="onClickKey(this);"><b>パ</b></button>
               <button key="バ" class="key" onClick="onClickKey(this);"><b>バ</b></button>
-              <span class="key-spacer"></span>
+              <button class="key invisible">.</button>
               <button key="ダ" class="key" onClick="onClickKey(this);"><b>ダ</b></button>
               <button key="ザ" class="key" onClick="onClickKey(this);"><b>ザ</b></button>
               <button key="ガ" class="key" onClick="onClickKey(this);"><b>ガ</b></button>
               <button key="ァ" class="key" onClick="onClickKey(this);"><b>ァ</b></button>
             </div>
             <div class="row">
-              <span class="key-spacer"></span>
+              <button class="key invisible">.</button>
               <button key="ピ" class="key" onClick="onClickKey(this);"><b>ピ</b></button>
               <button key="ビ" class="key" onClick="onClickKey(this);"><b>ビ</b></button>
-              <span class="key-spacer"></span>
+              <button class="key invisible">.</button>
               <button key="ヂ" class="key" onClick="onClickKey(this);"><b>ヂ</b></button>
               <button key="ジ" class="key" onClick="onClickKey(this);"><b>ジ</b></button>
               <button key="ギ" class="key" onClick="onClickKey(this);"><b>ギ</b></button>
@@ -126,10 +128,10 @@
               <button key="ゥ" class="key" onClick="onClickKey(this);"><b>ゥ</b></button>
             </div>
             <div class="row">
-              <span class="key-spacer"></span>
+              <button class="key invisible">.</button>
               <button key="ペ" class="key" onClick="onClickKey(this);"><b>ペ</b></button>
               <button key="ベ" class="key" onClick="onClickKey(this);"><b>ベ</b></button>
-              <span class="key-spacer"></span>
+              <button class="key invisible">.</button>
               <button key="デ" class="key" onClick="onClickKey(this);"><b>デ</b></button>
               <button key="ゼ" class="key" onClick="onClickKey(this);"><b>ゼ</b></button>
               <button key="ゲ" class="key" onClick="onClickKey(this);"><b>ゲ</b></button>
@@ -139,7 +141,7 @@
               <button key="ョ" class="key" onClick="onClickKey(this);"><b>ョ</b></button>
               <button key="ポ" class="key" onClick="onClickKey(this);"><b>ポ</b></button>
               <button key="ボ" class="key" onClick="onClickKey(this);"><b>ボ</b></button>
-              <span class="key-spacer"></span>
+              <button class="key invisible">.</button>
               <button key="ド" class="key" onClick="onClickKey(this);"><b>ド</b></button>
               <button key="ゾ" class="key" onClick="onClickKey(this);"><b>ゾ</b></button>
               <button key="ゴ" class="key" onClick="onClickKey(this);"><b>ゴ</b></button>
@@ -147,9 +149,11 @@
             </div>
           </div>
           <div class="row">
-            <button key="enter" class="enter-key" onClick="onClickKey(this);"><b>Enter</b></button>
-            <button key="toggle" class="toggle-key" onClick="toggleKeyboard();"><b>通常 ↔ ゛゜小</b></button>
-            <button key="bs" class="bs-key" onClick="onClickKey(this);"><b><span class="bs">⌫</span></b></button>
+            <div class="enter-button-row">
+              <button key="enter" class="enter-key" onClick="onClickKey(this);"><b>Enter</b></button>
+              <button key="toggle" class="toggle-key" onClick="toggleKeyboard();"><b>通常 ↔ ゛゜小</b></button>
+              <button key="bs" class="bs-key" onClick="onClickKey(this);"><b><span class="bs">⌫</span></b></button>
+            </div>
           </div>
         </div>
       </div>
@@ -159,8 +163,8 @@
         後出しポケモンWordleは、ポケモンWordleの<b>後出しを用いた超高難易度版</b>です。<br>
         <br>
         通常のポケモンWordleでは予めポケモンの名前が決まっていますが、
-        このゲームではこれまでに出したパネルの結果と<b>矛盾しない範囲で正解を変え、
-        なるべく少ない情報しか出さないように</b>パネルの結果が出てきます。<br>
+        このゲームでは相手はプレイヤーの予想を見た上で、これまでのパネルの結果と<b>矛盾しない範囲で正解を変え、
+        なるべく少ない情報しか出さないように</b>パネルの結果を出してきます。<br>
         <br>
         原作の<a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a>および<a href="https://wordle.mega-yadoran.jp/">ポケモンWordle</a>と違って、
         好きな回数だけポケモンの名前を予想することができます。
