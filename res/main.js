@@ -42,10 +42,14 @@ function typekey(key) {
         }
     } else if (key == "enter") {
         if (is_pokemon(str)) {
-            let feedback = get_feedback(str, "アリアドス");
+            let feedback_tuple = get_feedback(str, "アリアドス");
+            let feedback = feedback_tuple[0];
+            let feedback_keystate = feedback_tuple[1];
             console.log(feedback);
             update_box_row_color(feedback);
             add_box_row();
+
+            update_keyboard_color(feedback_keystate);
         } else {
             window.alert(str + "は有効なポケモンの名前ではありません。");
         }
@@ -61,8 +65,7 @@ function typekey(key) {
 
 function update_box_row_color(feedback) {
     for(let i=0; i<5; i++){
-        const color_c = feedback[i];
-        const color = color_c == "G" ? "green" : color_c == "Y" ? "yellow" : "grey";
+        const color = feedback[i];
         const box = document.getElementById("box-" + currow + "-" + i);
         box.classList.remove("box-empty");
         box.classList.add("box-" + color);
@@ -112,22 +115,31 @@ function get_feedback(testword, hiddenword) {
         cset_hidden[c] += 1;
     }
     ret = "";
+    ret_keydict = {};
     console.log(state);
     for (let i=0; i<state.length; i++) {
         let c_test = state[i][0];
         let c_hidden = state[i][1];
         if (c_test == c_hidden) {
             ret = ret + "G";
+            ret_keydict[c_test] = "G";
         } else if (hiddenword.includes(c_test)) {
             if (cset_hidden[c_test] && cset_hidden[c_test] > 0) {
                 ret = ret + "Y";
+                ret_keydict[c_test] = "Y";
                 cset_hidden[c_test] -= 1;
             } else {
                 ret = ret + "B";
             }
         } else {
             ret = ret + "B";
+            ret_keydict[c_test] = "B";
         }
     }
-    return ret;
+    return [ret, ret_keydict];
+}
+
+function update_keyboard_color(feedback_keystate) {
+    let key = document.querySelectorAll('[key="'+"ア"+'"]')[0];
+    key.classList.add("box-G");
 }

@@ -63,14 +63,14 @@
     border-style: solid;
 }
 
-.box-green {
-    background-color: #31dd2b;
+.box-G {
+    background-color: #4cd447;
     /* border-color: #31dd2b; */
     border-color: #ffffff;
     border-style: solid;
 }
 
-.box-yellow {
+.box-Y {
     background-color: #ccc929;
     /* border-color: #ff6021; */
     /* border-style: dashed; */
@@ -80,8 +80,8 @@
     border-width: 2px;
 }
 
-.box-grey {
-    background-color: #8f8d8d;
+.box-B {
+    background-color: #6d6d6d;
     /* border-color: #8f8d8d; */
     border-color: #ffffff;
     border-style: solid;
