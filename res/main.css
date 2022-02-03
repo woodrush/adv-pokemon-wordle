@@ -17,12 +17,18 @@
     width: 4em;
 }
 
+.help-key {
+    height: 50px;
+    width: 2em;
+}
+
 .key {
     height: 50px;
     width: 2em;
     border-radius: 5px;
     border-color:rgb(216, 216, 216);
-    box-shadow: 0px 0px;
+    /* box-shadow: 0px 0px; */
+    border-style: solid;
 }
 
 .key-G {

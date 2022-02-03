@@ -2,6 +2,7 @@ var currow = 0;
 var curcol = 0;
 var str = "";
 var curkeyboard = 0;
+var current_pokedex = [];
 
 function toggleKeyboard() {
     const keyboard_0 = document.getElementById("keyboard-0");
@@ -64,7 +65,7 @@ function typekey(key) {
 }
 
 function update_box_row_color(feedback) {
-    for(let i=0; i<5; i++){
+    for(let i=0; i<feedback.length; i++){
         const color = feedback[i];
         const box = document.getElementById("box-" + currow + "-" + i);
         box.classList.remove("box-empty");
@@ -92,6 +93,17 @@ function add_box_row() {
     board.appendChild(tr);
 }
 
+function update_keyboard_color(feedback_keystate) {
+    console.log(feedback_keystate);
+    for (const [k, v] of Object.entries(feedback_keystate)) {
+        let key = document.querySelectorAll('[key="'+k+'"]')[0];
+        console.log(key);
+        if (!key.classList.contains("key-G")) {
+            key.classList.add("key-" + v);
+        }
+    }
+}
+
 function is_pokemon(name) {
     let str_5 = (name + "     ").slice(0,5);
     return pokedex.includes(str_5);
@@ -114,7 +126,7 @@ function get_feedback(testword, hiddenword) {
     }
     ret = "";
     ret_keydict = {};
-    for (let i=0; i<hiddenword.length; i++) {
+    for (let i=0; i<testword.length; i++) {
         let c_test = testword[i];
         let c_hidden = hiddenword[i];
         if (c_test == c_hidden) {
@@ -138,13 +150,23 @@ function get_feedback(testword, hiddenword) {
     return [ret, ret_keydict];
 }
 
-function update_keyboard_color(feedback_keystate) {
-    console.log(feedback_keystate);
-    for (const [k, v] of Object.entries(feedback_keystate)) {
-        let key = document.querySelectorAll('[key="'+k+'"]')[0];
-        console.log(key);
-        if (!key.classList.contains("key-G")) {
-            key.classList.add("key-" + v);
+function get_feedback_set(testword, H) {
+    let feedback_dict = {};
+    H.forEach(hiddenword => {
+        let feedback_tuple = get_feedback(testword, hiddenword);
+        let feedback = feedback_tuple[0];
+        feedback_dict[feedback]
+    });
+}
+
+function init() {
+    current_pokedex = [];
+    for (let i=0; i<pokedex.length; i++) {
+        const pokemon = pokedex[i];
+        if (!pokemon.includes(" ")) {
+            current_pokedex.push(pokemon);
         }
     }
+    console.log(current_pokedex);
+    console.log(current_pokedex.length);
 }
