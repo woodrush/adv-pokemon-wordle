@@ -12,12 +12,6 @@
     width: 2em;
 }
 
-.key-on {
-    height: 50px;
-    width: 2em;
-    background-color: rgb(80, 80, 255);
-}
-
 .key-spacer {
     height: 50px;
     margin-left: 1.9em;

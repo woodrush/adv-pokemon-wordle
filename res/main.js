@@ -2,12 +2,6 @@ var currow = 0;
 var curcol = 0;
 var str = "";
 
-var keystate = {
-    "shou": false,
-    "daku": false,
-    "handaku": false
-};
-
 function onClickKey(key_dom) {
     const keychar = key_dom.getAttribute("key");
     console.log(keychar);
@@ -25,18 +19,6 @@ function showbox(s) {
     }
 }
 
-function toggle_keystate(key) {
-    keystate["shou"] = false;
-    keystate["daku"] = false;
-    keystate["handaku"] = false;
-    document.getElementById("key-shou").classList.remove("key-on");
-    document.getElementById("key-daku").classList.remove("key-on");
-    document.getElementById("key-handaku").classList.remove("key-on");
-
-    keystate[key] = true;
-    document.getElementById("key-"+key).classList.toggle("key-on");
-}
-
 function typekey(key) {
     if (key == "bs") {
         if (curcol > 0) {
@@ -44,7 +26,16 @@ function typekey(key) {
             curcol -= 1;
         }
     } else if (key == "shou" || key == "daku" || key == "handaku") {
-        toggle_keystate(key);
+        if (curcol > 0) {
+            const curchar = str[curcol-1];
+            const keydict = keydict_all[key];
+            for (const [key, value] of Object.entries(keydict)) {
+                if (key == curchar) {
+                    str = str.slice(0,curcol-1);
+                    str = str + value;
+                }
+            }
+        }
     } else if (curcol > 4) {
         return;
     } else {
