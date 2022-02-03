@@ -42,8 +42,12 @@ function typekey(key) {
         }
     } else if (key == "enter") {
         if (is_pokemon(str)) {
-            update_box_row_color(["green", "yellow", "grey", "grey", "yellow"]);
+            let feedback = get_feedback(str, "アリアドス");
+            console.log(feedback);
+            update_box_row_color(feedback);
             add_box_row();
+        } else {
+            window.alert(str + "は有効なポケモンの名前ではありません。");
         }
         return;
     } else if (curcol > 4) {
@@ -55,11 +59,13 @@ function typekey(key) {
     update_box_row_text(str);
 }
 
-function update_box_row_color(colors) {
+function update_box_row_color(feedback) {
     for(let i=0; i<5; i++){
+        const color_c = feedback[i];
+        const color = color_c == "G" ? "green" : color_c == "Y" ? "yellow" : "grey";
         const box = document.getElementById("box-" + currow + "-" + i);
         box.classList.remove("box-empty");
-        box.classList.add("box-" + colors[i]);
+        box.classList.add("box-" + color);
         const box_text = document.getElementById("box-text-" + currow + "-" + i);
         if (box_text) {
             box_text.classList.remove("box-text-input");
@@ -84,6 +90,44 @@ function add_box_row() {
 }
 
 function is_pokemon(name) {
-    let str_5 = (str + "     ").slice(0,5);
+    let str_5 = (name + "     ").slice(0,5);
     return pokedex.includes(str_5);
+}
+
+function get_feedback(testword, hiddenword) {
+    let state = [];
+    for (let i=0; i<testword.length; i++) {
+        if (testword[i] == hiddenword[i]) {
+            state.push([1,1]);
+        } else {
+            state.push([testword[i], hiddenword[i]])
+        }
+    }
+    cset_hidden = {};
+    for (let i=0; i<hiddenword.length; i++) {
+        const c = hiddenword[i];
+        if (!cset_hidden[c]) {
+            cset_hidden[c] = 0;
+        }
+        cset_hidden[c] += 1;
+    }
+    ret = "";
+    console.log(state);
+    for (let i=0; i<state.length; i++) {
+        let c_test = state[i][0];
+        let c_hidden = state[i][1];
+        if (c_test == c_hidden) {
+            ret = ret + "G";
+        } else if (hiddenword.includes(c_test)) {
+            if (cset_hidden[c_test] && cset_hidden[c_test] > 0) {
+                ret = ret + "Y";
+                cset_hidden[c_test] -= 1;
+            } else {
+                ret = ret + "B";
+            }
+        } else {
+            ret = ret + "B";
+        }
+    }
+    return ret;
 }
