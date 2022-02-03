@@ -68,9 +68,11 @@
 }
 
 .box-yellow {
-    background-color: #fffc66;
-    border-color: #686868;
-    border-style: dashed;
+    background-color: #ccc929;
+    /* border-color: #ff6021; */
+    /* border-style: dashed; */
+    border-color: #ccc929;
+    border-style: solid;
     border-width: 2px;
     width: 3.5em;
     height: 55px;
@@ -82,4 +84,14 @@
     border-style: solid;
     width: 3.5em;
     height: 55px;
+}
+
+.box-text-input {
+    color: rgb(0, 0, 0);
+    font-size: 1.2em;
+}
+
+.box-text-output {
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
 }

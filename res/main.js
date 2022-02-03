@@ -27,7 +27,7 @@ function update_box_row_text(s) {
     for(let i=0; i<5; i++){
         const box = document.getElementById("box-" + currow + "-" + i);
         if (s[i]) {
-            box.innerHTML = "<b>" + s[i] + "</b>";
+            box.innerHTML = "<b class='box-text-input' id='box-text-" + currow + "-" + i + "'>" + s[i] + "</b>";
         } else {
             box.innerHTML = "";
         }
@@ -42,7 +42,7 @@ function typekey(key) {
         }
     } else if (key == "enter") {
         update_box_row_color(["green", "yellow", "grey", "grey", "yellow"]);
-        
+        return;
     } else if (curcol > 4) {
         return;
     } else {
@@ -58,5 +58,10 @@ function update_box_row_color(colors) {
         const box = document.getElementById("box-" + currow + "-" + i);
         box.classList.remove("box-empty");
         box.classList.add("box-" + colors[i]);
+        const box_text = document.getElementById("box-text-" + currow + "-" + i);
+        if (box_text) {
+            box_text.classList.remove("box-text-input");
+            box_text.classList.add("box-text-output");
+        }
     }
 }
