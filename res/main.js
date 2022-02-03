@@ -43,8 +43,10 @@ function typekey(key) {
         }
     } else if (key == "enter") {
         if (is_pokemon(str)) {
-            let feedback = get_feedback(str, "アリアドス");
+            // let feedback = get_feedback(str, "アリアドス");
+            let feedback = get_optimal_feedback_and_set_pokedex(str, current_pokedex);
             let feedback_keystate = feedback2keystate(str, feedback);
+            console.log(current_pokedex.length);
             console.log(feedback);
             console.log(feedback_keystate);
             update_box_row_color(feedback);
@@ -98,6 +100,10 @@ function update_keyboard_color(feedback_keystate) {
     for (const [k, v] of Object.entries(feedback_keystate)) {
         let key = document.querySelectorAll('[key="'+k+'"]')[0];
         console.log(key);
+        if (key.classList.contains("key-Y")) {
+            key.classList.remove("key-Y");
+        }
+
         if (!key.classList.contains("key-G")) {
             key.classList.add("key-" + v);
         }
@@ -125,26 +131,20 @@ function get_feedback(testword, hiddenword) {
         }
     }
     ret = "";
-    // ret_keydict = {};
     for (let i=0; i<testword.length; i++) {
         let c_test = testword[i];
         let c_hidden = hiddenword[i];
         if (c_test == c_hidden) {
             ret = ret + "G";
-            // ret_keydict[c_test] = "G";
         } else if (hiddenword.includes(c_test)) {
             if (cset_hidden[c_test] && cset_hidden[c_test] > 0) {
                 ret = ret + "Y";
-                // if (!ret_keydict[c_test]) {
-                //     ret_keydict[c_test] = "Y";
-                // }
                 cset_hidden[c_test] -= 1;
             } else {
                 ret = ret + "B";
             }
         } else {
             ret = ret + "B";
-            // ret_keydict[c_test] = "B";
         }
     }
     return ret;
