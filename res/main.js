@@ -43,10 +43,10 @@ function typekey(key) {
         }
     } else if (key == "enter") {
         if (is_pokemon(str)) {
-            let feedback_tuple = get_feedback(str, "アリアドス");
-            let feedback = feedback_tuple[0];
-            let feedback_keystate = feedback_tuple[1];
+            let feedback = get_feedback(str, "アリアドス");
+            let feedback_keystate = feedback2keystate(str, feedback);
             console.log(feedback);
+            console.log(feedback_keystate);
             update_box_row_color(feedback);
             add_box_row();
 
@@ -125,38 +125,70 @@ function get_feedback(testword, hiddenword) {
         }
     }
     ret = "";
-    ret_keydict = {};
+    // ret_keydict = {};
     for (let i=0; i<testword.length; i++) {
         let c_test = testword[i];
         let c_hidden = hiddenword[i];
         if (c_test == c_hidden) {
             ret = ret + "G";
-            ret_keydict[c_test] = "G";
+            // ret_keydict[c_test] = "G";
         } else if (hiddenword.includes(c_test)) {
             if (cset_hidden[c_test] && cset_hidden[c_test] > 0) {
                 ret = ret + "Y";
-                if (!ret_keydict[c_test]) {
-                    ret_keydict[c_test] = "Y";
-                }
+                // if (!ret_keydict[c_test]) {
+                //     ret_keydict[c_test] = "Y";
+                // }
                 cset_hidden[c_test] -= 1;
             } else {
                 ret = ret + "B";
             }
         } else {
             ret = ret + "B";
-            ret_keydict[c_test] = "B";
+            // ret_keydict[c_test] = "B";
         }
     }
-    return [ret, ret_keydict];
+    return ret;
 }
 
-function get_feedback_set(testword, H) {
+function feedback2keystate(testword, feedback) {
+    ret_keystate = {};
+    for (let i=0; i<feedback.length; i++) {
+        if (feedback[i] == "G") {
+            ret_keystate[testword[i]] = "G";
+        } else if (feedback[i] == "Y") {
+            if (!ret_keystate[testword[i]]) {
+                ret_keystate[testword[i]] = "Y";
+            }
+        } else if (feedback[i] == "B") {
+            ret_keystate[testword[i]] = "B";
+        }
+    }
+    return ret_keystate;
+}
+
+function get_optimal_feedback_and_set_pokedex(testword, H) {
     let feedback_dict = {};
     H.forEach(hiddenword => {
-        let feedback_tuple = get_feedback(testword, hiddenword);
-        let feedback = feedback_tuple[0];
-        feedback_dict[feedback]
+        let feedback = get_feedback(testword, hiddenword);
+        if (!feedback_dict[feedback]) {
+            feedback_dict[feedback] = [];
+        }
+        feedback_dict[feedback].push(hiddenword);
     });
+
+    let maxlength = -1;
+    let maxfeedback;
+    let maxset;
+    for (const [k, v] of Object.entries(feedback_dict)) {
+        if (v.length > maxlength) {
+            maxlength = v.length;
+            maxfeedback = k;
+            maxset = v;
+        }
+    }
+    current_pokedex = maxset;
+    console.log(current_pokedex);
+    return maxfeedback;
 }
 
 function init() {
@@ -167,6 +199,4 @@ function init() {
             current_pokedex.push(pokemon);
         }
     }
-    console.log(current_pokedex);
-    console.log(current_pokedex.length);
 }
