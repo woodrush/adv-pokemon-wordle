@@ -41,8 +41,10 @@ function typekey(key) {
             curcol -= 1;
         }
     } else if (key == "enter") {
-        update_box_row_color(["green", "yellow", "grey", "grey", "yellow"]);
-        add_box_row();
+        if (is_pokemon(str)) {
+            update_box_row_color(["green", "yellow", "grey", "grey", "yellow"]);
+            add_box_row();
+        }
         return;
     } else if (curcol > 4) {
         return;
@@ -79,4 +81,9 @@ function add_box_row() {
         tr.appendChild(td);
     }
     board.appendChild(tr);
+}
+
+function is_pokemon(name) {
+    let str_5 = (str + "     ").slice(0,5);
+    return pokedex.includes(str_5);
 }
