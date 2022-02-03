@@ -1,5 +1,16 @@
+.bs {
+    font-size: 1.4em;
+}
+
 .row {
     margin-bottom: 3px;
+}
+
+.bs-key {
+    height: 50px;
+    width: 5em;
+    /* padding-top: 5px; */
+    padding-bottom: 5px;
 }
 
 .enter-key {
@@ -14,12 +25,13 @@
 
 .settings-key {
     height: 50px;
-    width: 4em;
+    width: 3em;
+    padding-bottom: 4px;
 }
 
 .help-key {
     height: 50px;
-    width: 2em;
+    width: 2.5em;
 }
 
 .key {
@@ -61,8 +73,16 @@
 }
 
 .title-container {
+    max-width: 30em;
     margin: 1em auto;
     text-align: center;
+}
+
+.title-body {
+    max-width: 30em;
+    margin: 1em auto;
+    /* margin: 1em auto; */
+    /* text-align: center; */
 }
 
 .keyboard-container {
@@ -73,6 +93,20 @@
 .board-container {
     margin: 1em auto;
     text-align: center;
+}
+
+.help-container {
+    max-width: 45em;
+    margin: 1em auto;
+    /* margin: 1em auto; */
+    text-align: center;
+}
+
+.help-body {
+    max-width: 45em;
+    margin: 1em auto;
+    /* margin: 1em auto; */
+    /* text-align: center; */
 }
 
 .board {

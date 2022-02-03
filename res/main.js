@@ -4,6 +4,8 @@ var str = "";
 var curkeyboard = 0;
 var current_pokedex = [];
 
+var screen_state = "game";
+
 function toggleKeyboard() {
     const keyboard_0 = document.getElementById("keyboard-0");
     const keyboard_1 = document.getElementById("keyboard-1");
@@ -43,7 +45,6 @@ function typekey(key) {
         }
     } else if (key == "enter") {
         if (is_pokemon(str)) {
-            // let feedback = get_feedback(str, "アリアドス");
             let feedback = get_optimal_feedback_and_set_pokedex(str, current_pokedex);
             let feedback_keystate = feedback2keystate(str, feedback);
             console.log(current_pokedex.length);
@@ -198,5 +199,19 @@ function init() {
         if (!pokemon.includes(" ")) {
             current_pokedex.push(pokemon);
         }
+    }
+}
+
+function clickHelp() {
+    const game_container = document.getElementById("game-container");
+    const help_container = document.getElementById("help-container");
+    if (screen_state == "game") {
+        game_container.style.display = "none";
+        help_container.style.display = "block";
+        screen_state = "help";
+    } else {
+        game_container.style.display = "block";
+        help_container.style.display = "none";
+        screen_state = "game";
     }
 }
