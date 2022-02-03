@@ -20,6 +20,28 @@
 .key {
     height: 50px;
     width: 2em;
+    border-radius: 5px;
+    border-color:rgb(216, 216, 216);
+    box-shadow: 0px 0px;
+}
+
+.key-G {
+    background-color: #4cd447;
+    /* border-color: #ffffff;
+    border-style: solid; */
+}
+
+.key-Y {
+    background-color: #ccc929;
+    /* border-color: #ffffff;
+    border-style: solid;
+    border-width: 2px; */
+}
+
+.key-B {
+    background-color: #6d6d6d;
+    /* border-color: #ffffff;
+    border-style: solid; */
 }
 
 .key-spacer {
@@ -77,7 +99,7 @@
     /* border-color: #ccc929; */
     border-color: #ffffff;
     border-style: solid;
-    border-width: 2px;
+    /* border-width: 2px; */
 }
 
 .box-B {

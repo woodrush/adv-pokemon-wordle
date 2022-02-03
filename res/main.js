@@ -98,14 +98,6 @@ function is_pokemon(name) {
 }
 
 function get_feedback(testword, hiddenword) {
-    let state = [];
-    for (let i=0; i<testword.length; i++) {
-        if (testword[i] == hiddenword[i]) {
-            state.push([1,1]);
-        } else {
-            state.push([testword[i], hiddenword[i]])
-        }
-    }
     cset_hidden = {};
     for (let i=0; i<hiddenword.length; i++) {
         const c = hiddenword[i];
@@ -114,19 +106,26 @@ function get_feedback(testword, hiddenword) {
         }
         cset_hidden[c] += 1;
     }
+
+    for (let i=0; i<testword.length; i++) {
+        if (testword[i] == hiddenword[i]) {
+            cset_hidden[testword[i]] -= 1;
+        }
+    }
     ret = "";
     ret_keydict = {};
-    console.log(state);
-    for (let i=0; i<state.length; i++) {
-        let c_test = state[i][0];
-        let c_hidden = state[i][1];
+    for (let i=0; i<hiddenword.length; i++) {
+        let c_test = testword[i];
+        let c_hidden = hiddenword[i];
         if (c_test == c_hidden) {
             ret = ret + "G";
             ret_keydict[c_test] = "G";
         } else if (hiddenword.includes(c_test)) {
             if (cset_hidden[c_test] && cset_hidden[c_test] > 0) {
                 ret = ret + "Y";
-                ret_keydict[c_test] = "Y";
+                if (!ret_keydict[c_test]) {
+                    ret_keydict[c_test] = "Y";
+                }
                 cset_hidden[c_test] -= 1;
             } else {
                 ret = ret + "B";
@@ -140,6 +139,12 @@ function get_feedback(testword, hiddenword) {
 }
 
 function update_keyboard_color(feedback_keystate) {
-    let key = document.querySelectorAll('[key="'+"ア"+'"]')[0];
-    key.classList.add("box-G");
+    console.log(feedback_keystate);
+    for (const [k, v] of Object.entries(feedback_keystate)) {
+        let key = document.querySelectorAll('[key="'+k+'"]')[0];
+        console.log(key);
+        if (!key.classList.contains("key-G")) {
+            key.classList.add("key-" + v);
+        }
+    }
 }
