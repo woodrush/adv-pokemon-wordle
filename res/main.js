@@ -23,7 +23,7 @@ function onClickKey(key_dom) {
     typekey(keychar);
 }
 
-function showbox(s) {
+function update_box_row_text(s) {
     for(let i=0; i<5; i++){
         const box = document.getElementById("box-" + currow + "-" + i);
         if (s[i]) {
@@ -40,11 +40,23 @@ function typekey(key) {
             str = str.slice(0,curcol-1);
             curcol -= 1;
         }
+    } else if (key == "enter") {
+        update_box_row_color(["green", "yellow", "grey", "grey", "yellow"]);
+        
     } else if (curcol > 4) {
         return;
     } else {
         str = str + key;
         curcol += 1;
     }
-    showbox(str);
+    update_box_row_text(str);
+}
+
+
+function update_box_row_color(colors) {
+    for(let i=0; i<5; i++){
+        const box = document.getElementById("box-" + currow + "-" + i);
+        box.classList.remove("box-empty");
+        box.classList.add("box-" + colors[i]);
+    }
 }

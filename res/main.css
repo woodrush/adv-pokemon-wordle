@@ -53,6 +53,33 @@
 
 .box-empty {
     background-color: #dcdcdc;
+    border-color: #dcdcdc;
+    border-style: solid;
+    width: 3.5em;
+    height: 55px;
+}
+
+.box-green {
+    background-color: #31dd2b;
+    border-color: #31dd2b;
+    border-style: solid;
+    width: 3.5em;
+    height: 55px;
+}
+
+.box-yellow {
+    background-color: #fffc66;
+    border-color: #686868;
+    border-style: dashed;
+    border-width: 2px;
+    width: 3.5em;
+    height: 55px;
+}
+
+.box-grey {
+    background-color: #8f8d8d;
+    border-color: #8f8d8d;
+    border-style: solid;
     width: 3.5em;
     height: 55px;
 }
