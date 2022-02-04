@@ -28,13 +28,13 @@ body {
 }
 
 .settings-key {
-    height: 50px;
+    height: 30px;
     width: 3.3em;
     /* padding-bottom: 4px; */
 }
 
 .help-key {
-    height: 50px;
+    height: 30px;
     width: 2.5em;
 }
 
@@ -100,9 +100,16 @@ body {
 }
 
 .title {
+    font-size: 1.8em;
+    vertical-align: center;
+    text-align: center;
+    /* margin-right: 7.3em; */
+    margin-bottom: 0.2em;
+}
+
+.subtitle {
     font-size: 1.2em;
     vertical-align: center;
-    margin-right: 2.3em;
     margin-bottom: 0.2em;
 }
 
@@ -110,7 +117,7 @@ body {
     max-width: 22em;
     margin: 1em auto;
     text-align: center;
-    flex: 0 0 20px; display: flex; justify-content: end; gap: 2px;
+    /* flex: 0 0 20px; display: flex; justify-content: end; gap: 2px; */
 }
 
 .title-body {

@@ -1,4 +1,4 @@
-var website_url = "https://woodrush.github.io/adv-pokemon-wordle/";
+var website_url = "https://woodrush.github.io/gardevle/";
 var currow = 0;
 var curcol = 0;
 var str = "";
@@ -59,7 +59,7 @@ function if_enter(str) {
         }
         update_box_row_text(str);
 
-        let feedback = get_optimal_feedback_and_set_pokedex(str, current_pokedex);
+        let feedback = get_feedback(str, "サーナイト");
         let feedback_keystate = feedback2keystate(str, feedback);
         console.log(current_pokedex.length);
         console.log(feedback);
@@ -252,10 +252,6 @@ function init() {
     // input_text.addEventListener("keypress", textbox_onkey);
     input_text.addEventListener("keydown", textbox_onkey);
 
-    if (!cookie_check_nomessage()) {
-        window.setTimeout(clickHelp, 800);
-    }
-
     document.getElementById("settings-key").addEventListener("click", clickSettings);
     document.getElementById("help-key").addEventListener("click", clickHelp);
     document.getElementById("result-failed").addEventListener("click", function () {
@@ -266,20 +262,20 @@ function init() {
     });
     document.getElementById("start-game-button").addEventListener("click", clickHelp);
     document.getElementById("result-button").addEventListener("click", share_twitter);
-    document.getElementById("set-nomessage-cookie-button").addEventListener("click", set_nomessage_cookie);
+    // document.getElementById("set-nomessage-cookie-button").addEventListener("click", set_nomessage_cookie);
 
-    document.getElementById("settings-link-1").addEventListener("click", clickSettings);
-    document.getElementById("help-to-settings-1").addEventListener("click", clickSettings);
+    // document.getElementById("settings-link-1").addEventListener("click", clickSettings);
+    // document.getElementById("help-to-settings-1").addEventListener("click", clickSettings);
 
     document.getElementById("check-hard").addEventListener("click", function () {
         click_mode("hard");
     });
-    document.getElementById("check-ultrahard").addEventListener("click", function () {
-        click_mode("ultrahard");
-    });
+    // document.getElementById("check-ultrahard").addEventListener("click", function () {
+    //     click_mode("ultrahard");
+    // });
 
-    document.getElementById("set-nomessage-cookie-button-2").addEventListener("click", set_nomessage_cookie);
-    document.getElementById("delete-cookie-button").addEventListener("click", delete_cookie);
+    // document.getElementById("set-nomessage-cookie-button-2").addEventListener("click", set_nomessage_cookie);
+    // document.getElementById("delete-cookie-button").addEventListener("click", delete_cookie);
 
     document.getElementById("settings-to-game-button").addEventListener("click", clickSettings);
     document.getElementById("toggle-key").addEventListener("click", toggleKeyboard);
@@ -340,7 +336,7 @@ function textbox_onkey(e) {
 }
 
 function tweet_result(result) {
-    let ret_text = "後出しポケモンWordle";
+    let ret_text = "サーナイtle";
     if (modedict["ultrahard"]) {
         ret_text = ret_text + "のウルトラハードモード";
     }
@@ -361,14 +357,14 @@ function tweet_result(result) {
         }
         ret_text = ret_text + ftext + "%0A";
     }
-    ret_text = ret_text + "%23後出しポケモンWordle%0A";
+    ret_text = ret_text + "%23サーナイtle%0A";
     ret_text = ret_text + website_url;
 
     window.open("https://twitter.com/intent/tweet?text=" + ret_text, "_blank");
 }
 
 function share_twitter(result) {
-    let ret_text = "後出しポケモンWordle %23後出しポケモンWordle%0A";
+    let ret_text = "サーナイtle %23サーナイtle%0A";
     ret_text = ret_text + website_url;
 
     window.open("https://twitter.com/intent/tweet?text=" + ret_text, "_blank");
@@ -401,22 +397,4 @@ function set_ultrahard_goal() {
     goaldoms.forEach(element => {
         element.innerHTML = ultrahard_goal;
     });
-}
-
-function cookie_check_nomessage() {
-    console.log(document.cookie);
-    const cookies = document.cookie.split('; ');
-    return cookies.includes("nomessage=true");
-}
-
-function delete_cookie() {
-    document.cookie.split(";").forEach(item => {
-        const eq_pos = item.indexOf("=");
-        const key = eq_pos > -1 ? item.slice(0, eq_pos) : item;
-        document.cookie = key + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    });
-  }
-
-function set_nomessage_cookie() {
-    document.cookie = "nomessage=true;";
 }
