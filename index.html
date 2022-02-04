@@ -11,7 +11,7 @@
     <div class="title-container">
       <table>
         <tr>
-          <td><div class="title"><span><b>後出しポケモンWordle</b></span></div></td>
+          <td><div class="title"><span><b><span style="color:red">後出し</span>ポケモンWordle</b></span></div></td>
           <td><button class="settings-key" onClick=""><b>⚙️</b></button></td>
           <td><button class="help-key" onClick="clickHelp()"><b>？</b></button></td>
         </tr>
@@ -38,6 +38,16 @@
           </tbody>
         </table>
       </div>
+      <div class="result-container">
+          <!-- style="display:none;" -->
+          <div class="result">
+            <b><span class="clear-message">クリア！</span></b><br>
+            <div class="result-message"><b><span style="color:red">後出し</span></b>ポケモンWordleを<br>
+              <b><span id="result_turns">10</span></b>手でクリアしました。</div>
+            <button class="twitter-share-button" onClick="tweet_result()">結果をツイートする</button>
+          </div>
+      </div>
+
       <div class="keyboard-container">
         <div class="keyboard">
           <div class="row">
@@ -173,8 +183,8 @@
         後出しポケモンWordleは、ポケモンWordleの<b>後出しを用いた超高難易度版</b>です。<br>
         <br>
         通常のポケモンWordleでは予めポケモンの名前が決まっていますが、
-        このゲームでは相手はプレイヤーの予想を見た上で、これまでのパネルの結果と<b>矛盾しない範囲で正解を変え、
-        なるべく少ない情報しか出さないように</b>パネルの結果を出してきます。<br>
+        このゲームでは相手はプレイヤーの予想を見た上で、これまでのパネルの結果と<span style="color:red"><b>矛盾しない範囲で正解を変え、
+        なるべく少ない情報しか出さないように</b></span>パネルの結果を出してきます。<br>
         <br>
         原作の<a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a>および<a href="https://wordle.mega-yadoran.jp/">ポケモンWordle</a>と違って、
         好きな回数だけポケモンの名前を予想することができます。

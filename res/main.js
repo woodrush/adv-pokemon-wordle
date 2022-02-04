@@ -1,9 +1,11 @@
+var website_url = "";
 var currow = 0;
 var curcol = 0;
 var str = "";
 var curkeyboard = 0;
 var current_pokedex = [];
 
+var feedback_history = [];
 var screen_state = "game";
 
 function toggleKeyboard() {
@@ -49,6 +51,7 @@ function if_enter(str) {
         console.log(feedback_keystate);
         update_box_row_color(feedback);
         add_box_row();
+        feedback_history.push(feedback);
 
         update_keyboard_color(feedback_keystate);
         return true;
@@ -66,8 +69,6 @@ function typekey(key) {
         }
     } else if (key == "enter") {
         let input_text = document.getElementById("input_text");
-        window.alert(input_text.value);
-        window.alert(2);
         if (input_text.value != "") {
             if_enter(input_text.value);
         } else {
@@ -247,4 +248,24 @@ function textbox_onkey(e) {
         }
     }
     return false;
+}
+
+function tweet_result() {
+    let ret_text = "後出しポケモンWordleを" + currow + "手でクリアしました。%0A"
+    const feedback2emoji = {
+        "G": "🟩",
+        "Y": "🟨",
+        "B": "⬛"
+    };
+    for (const feedback of feedback_history){
+        let ftext = "";
+        for (const c of feedback) {
+            ftext = ftext + feedback2emoji[c];
+        }
+        ret_text = ret_text + ftext + "%0A";
+    }
+    ret_text = ret_text + "%23後出しポケモンWordle%0A";
+    ret_text = ret_text + website_url;
+
+    window.open("https://twitter.com/intent/tweet?text=" + ret_text, "_blank");
 }

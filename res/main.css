@@ -34,6 +34,10 @@
     width: 2.5em;
 }
 
+.key-hover:hover {
+    background-color: #ffffff;
+}
+
 .key {
     height: 50px;
     width: 8%;
@@ -42,6 +46,11 @@
     /* box-shadow: 0px 0px; */
     border-style: solid;
 }
+
+.key:hover {
+    background-color: #ffffff;
+}
+
 
 .key-G {
     background-color: #4cd447;
@@ -66,6 +75,13 @@
     height: 50px;
     margin-left: 1.9em;
 } */
+
+.clear-message {
+    font-size: 1.2em;
+    vertical-align: center;
+    margin-bottom: 0.2em;
+}
+
 
 .title {
     font-size: 1.2em;
@@ -101,6 +117,12 @@
     max-width: 30em;
 }
 
+.result-container {
+    margin: 1em auto;
+    text-align: center;
+    max-width: 30em;
+}
+
 .help-container {
     max-width: 45em;
     margin: 1em auto;
@@ -120,8 +142,8 @@
 }
 
 .box-base {
-    width: 3.4em;
-    height: 58px;
+    width: 3.2em;
+    height: 3.4em;
     border-width: 2px;
 }
 .box-empty {
@@ -187,4 +209,25 @@
     height: 30px;
     width: 20em;
     text-align: center;
+}
+
+.result-message {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.twitter-share-button {
+    background-color: rgb(29, 155, 240);
+    color: #ffffff;
+    font-size: 1em;
+    border-color: #ffffff;
+    box-shadow: none;
+    text-shadow: none;
+    border-radius: 8px;
+    border-style: solid;
+    padding: 8px 14px 8px 14px;
+}
+
+.twitter-share-button:hover {
+    background-color: rgb(85, 177, 238)
 }
