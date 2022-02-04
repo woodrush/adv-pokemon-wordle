@@ -1,4 +1,4 @@
-var website_url = "https://woodrush.github.io/adv-pokemon-wordle/index.html";
+var website_url = "https://woodrush.github.io/adv-pokemon-wordle/";
 var currow = 0;
 var curcol = 0;
 var str = "";
