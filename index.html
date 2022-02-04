@@ -40,8 +40,11 @@
       </div>
       <div class="keyboard-container">
         <div class="keyboard">
+          <div class="row">
+            <input type="text" class="input-text" id="input_text" onkeydown="textbox_onkey">
+          </div>
           <div id="keyboard-0">
-            <div class="row">
+              <div class="row">
               <button key="ワ" class="key" onClick="onClickKey(this);"><b>ワ</b></button>
               <button key="ラ" class="key" onClick="onClickKey(this);"><b>ラ</b></button>
               <button key="ヤ" class="key" onClick="onClickKey(this);"><b>ヤ</b></button>
@@ -161,9 +164,6 @@
               <button key="toggle" class="toggle-key" onClick="toggleKeyboard();"><b>通常 ↔ ゛゜小</b></button>
               <button key="bs" class="bs-key" onClick="onClickKey(this);"><b><span class="bs">⌫</span></b></button>
             </div>
-          </div>
-          <div class="row">
-            <input type="text" class="input-text" id="input-text">
           </div>
         </div>
       </div>

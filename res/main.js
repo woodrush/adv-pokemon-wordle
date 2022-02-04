@@ -65,7 +65,14 @@ function typekey(key) {
             curcol -= 1;
         }
     } else if (key == "enter") {
-        if_enter(str);
+        let input_text = document.getElementById("input_text");
+        window.alert(input_text.value);
+        window.alert(2);
+        if (input_text.value != "") {
+            if_enter(input_text.value);
+        } else {
+            if_enter(str);
+        }
         return;
     } else if (curcol > 4) {
         return;
@@ -210,8 +217,9 @@ function init() {
         }
     }
 
-    let input_text = document.getElementById("input-text");
-    input_text.addEventListener("keypress", textbox_onkey);
+    let input_text = document.getElementById("input_text");
+    // input_text.addEventListener("keypress", textbox_onkey);
+    input_text.addEventListener("keydown", textbox_onkey);
 }
 
 function clickHelp() {
@@ -229,7 +237,7 @@ function clickHelp() {
 }
 
 function textbox_onkey(e) {
-    let input_text = document.getElementById("input-text");
+    let input_text = document.getElementById("input_text");
     if (e.keyCode === 13) {
         // str = input_text.value;
         // update_box_row_text(str);
