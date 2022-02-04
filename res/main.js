@@ -254,6 +254,9 @@ function show_results() {
 }
 
 function textbox_onkey(e) {
+    if (game_cleared) {
+        return;
+    }
     let input_text = document.getElementById("input_text");
     if (e.keyCode === 13) {
         // str = input_text.value;
