@@ -9,13 +9,20 @@
   </head>
   <body onLoad="init()">
     <div class="title-container">
-      <div class="title-body">
+      <table>
+        <tr>
+          <td><div class="title"><span><b>後出しポケモンWordle</b></span></div></td>
+          <td><button class="settings-key" onClick=""><b>⚙️</b></button></td>
+          <td><button class="help-key" onClick="clickHelp()"><b>？</b></button></td>
+        </tr>
+      </table>
+      <!-- <div class="title-body">
         <div class="settings-button-row">
           <span class="title"><b>後出しポケモンWordle</b></span>
-          <button class="settings-key" onClick=""><b>⚙️</b></button>
+           <button class="settings-key" onClick=""><b>設定</b></button>
           <button class="help-key" onClick="clickHelp()"><b>？</b></button>
         </div>
-      </div>
+      </div> -->
     </div>
     <div id="game-container">
       <div class="board-container">
