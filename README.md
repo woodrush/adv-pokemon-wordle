@@ -1,4 +1,7 @@
 # 後出しポケモンWordle - Adversarial Pokemon Wordle
+このゲームは[Josh Wardle](https://powerlanguage.co.uk/)さん作の[Wordle](https://www.powerlanguage.co.uk/wordle/)の派生作品である
+[qntm](https://qntm.org/)さん作の[Absurdle](https://qntm.org/files/absurdle/absurdle.html)のクローンゲームです。
+
 後出しポケモンWordleは、ポケモンWordleの**後出しを用いた超高難易度版**です。
 
 通常のポケモンWordleでは予めポケモンの名前が決まっていますが、
@@ -10,9 +13,6 @@
 好きな回数だけポケモンの名前を予想することができます。
 正解候補のポケモンはソード・シールドまでに登場する5文字のポケモン、
 予想として使えるのはソード・シールドまでに登場する5文字以内の全てのポケモンです。
-
-このゲームは[qntm](https://qntm.org/)さん作のWordleのadversarial版
-[Absurdle](https://qntm.org/files/absurdle/absurdle.html)から着想を得ています。
 
 
 ## モード
