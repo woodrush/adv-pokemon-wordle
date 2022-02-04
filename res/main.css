@@ -25,8 +25,8 @@
 
 .settings-key {
     height: 50px;
-    width: 3em;
-    padding-bottom: 4px;
+    width: 3.3em;
+    /* padding-bottom: 4px; */
 }
 
 .help-key {
@@ -86,7 +86,7 @@
 .title {
     font-size: 1.2em;
     vertical-align: center;
-    margin-right: 2.5em;
+    margin-right: 2.3em;
     margin-bottom: 0.2em;
 }
 
