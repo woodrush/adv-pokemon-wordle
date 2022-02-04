@@ -16,6 +16,8 @@ var modedict = {
     "ultrahard": false,
 }
 
+var ultrahard_goal = "";
+
 function toggleKeyboard() {
     const keyboard_0 = document.getElementById("keyboard-0");
     const keyboard_1 = document.getElementById("keyboard-1");
@@ -324,4 +326,14 @@ function click_mode(mode) {
 
     let ultrahard_container = document.getElementById("ultrahard-container");
     ultrahard_container.style.display = modedict["ultrahard"] ? "block" : "none";
+
+    if (modedict["ultrahard"]) {
+        set_ultrahard_goal();
+    }
+}
+
+function set_ultrahard_goal() {
+    ultrahard_goal = current_pokedex[Math.floor(Math.random() * current_pokedex.length)];
+    let goaldom = document.getElementById("ultrahard-goal");
+    goaldom.innerHTML = ultrahard_goal;
 }
