@@ -1,4 +1,4 @@
-var website_url = "";
+var website_url = "https://woodrush.github.io/adv-pokemon-wordle/index.html";
 var currow = 0;
 var curcol = 0;
 var str = "";
@@ -330,6 +330,13 @@ function tweet_result(result) {
         ret_text = ret_text + ftext + "%0A";
     }
     ret_text = ret_text + "%23後出しポケモンWordle%0A";
+    ret_text = ret_text + website_url;
+
+    window.open("https://twitter.com/intent/tweet?text=" + ret_text, "_blank");
+}
+
+function share_twitter(result) {
+    let ret_text = "後出しポケモンWordle %23後出しポケモンWordle%0A";
     ret_text = ret_text + website_url;
 
     window.open("https://twitter.com/intent/tweet?text=" + ret_text, "_blank");
