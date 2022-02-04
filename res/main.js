@@ -251,6 +251,10 @@ function init() {
     let input_text = document.getElementById("input_text");
     // input_text.addEventListener("keypress", textbox_onkey);
     input_text.addEventListener("keydown", textbox_onkey);
+
+    if (!cookie_check_nomessage()) {
+        window.setTimeout(clickHelp, 800);
+    }
 }
 
 function clickHelp() {
@@ -369,4 +373,22 @@ function set_ultrahard_goal() {
     goaldoms.forEach(element => {
         element.innerHTML = ultrahard_goal;
     });
+}
+
+function cookie_check_nomessage() {
+    console.log(document.cookie);
+    const cookies = document.cookie.split('; ');
+    return cookies.includes("nomessage=true");
+}
+
+function delete_cookie() {
+    document.cookie.split(";").forEach(item => {
+        const eq_pos = item.indexOf("=");
+        const key = eq_pos > -1 ? item.slice(0, eq_pos) : item;
+        document.cookie = key + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    });
+  }
+
+function set_nomessage_cookie() {
+    document.cookie = "nomessage=true;";
 }

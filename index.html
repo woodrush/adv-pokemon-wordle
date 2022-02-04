@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta property="og:title" content="後出しポケモンWordle">
     <meta property="og:locale" content="ja_JP">
-    <meta name="description" content="予想に合わせて次々と変わっていく正解を当てる高難易度版CPU対戦型ポケモンWordle「後出しポケモンWordle」">
-    <meta property="og:description" content="予想に合わせて次々と変わっていく正解を当てる高難易度版CPU対戦型ポケモンWordle「後出しポケモンWordle」">
+    <meta name="description" content="CPU対戦型高難易度版 - 予想に合わせて次々と変わっていく正解を当てるポケモンWordle「後出しポケモンWordle」">
+    <meta property="og:description" content="CPU対戦型高難易度版 - 予想に合わせて次々と変わっていく正解を当てるポケモンWordle「後出しポケモンWordle」">
     <link rel="canonical" href="https://woodrush.github.io/adv-pokemon-wordle/index.html">
     <meta property="og:url" content="https://woodrush.github.io/adv-pokemon-wordle/index.html">
     <meta property="og:site_name" content="後出しポケモンWordle">
@@ -15,7 +15,7 @@
     <meta property="twitter:image" content="https://woodrush.github.io/adv-pokemon-wordle/res/thumbnail.png">
     <meta property="twitter:title" content="後出しポケモンWordle">
     <script type="application/ld+json">
-    {"description":"予想に合わせて次々と変わっていく正解を当てる高難易度版CPU対戦型ポケモンWordle「後出しポケモンWordle」","@type":"Game","image":"https://woodrush.github.io/adv-pokemon-wordle/res/thumbnail.png","headline":"後出しポケモンWordle","dateModified":"2022-02-04T19:00:35+09:00","datePublished":"2022-02-04T19:00:35+09:00","url":"https://woodrush.github.io/blog/posts/2022-01-16-neural-networks-in-pure-lisp.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://woodrush.github.io/adv-pokemon-wordle/index.html"},"@context":"https://schema.org"}</script>
+    {"description":"CPU対戦型高難易度版 - 予想に合わせて次々と変わっていく正解を当てるポケモンWordle「後出しポケモンWordle」","@type":"Game","image":"https://woodrush.github.io/adv-pokemon-wordle/res/thumbnail.png","headline":"後出しポケモンWordle","dateModified":"2022-02-04T19:00:35+09:00","datePublished":"2022-02-04T19:00:35+09:00","url":"https://woodrush.github.io/blog/posts/2022-01-16-neural-networks-in-pure-lisp.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://woodrush.github.io/adv-pokemon-wordle/index.html"},"@context":"https://schema.org"}</script>
     <title>後出しポケモンWordle</title>
     <script type="text/javascript" src="./res/pokedex.js"></script>
     <script type="text/javascript" src="./res/main.js"></script>
@@ -212,23 +212,30 @@
     </div>
     <div id="help-container" style="display:none;">
       <div class="help-body">
-        後出しポケモンWordleは、ポケモンWordleの<b>後出しを用いた超高難易度版</b>です。<br>
+        後出しポケモンWordleは、<b>CPUとの対戦型の高難易度版</b>ポケモンWordleです。<br>
         <br>
-        通常のポケモンWordleでは予めポケモンの名前が決まっていますが、
+        このゲームはCPUとの対戦型ゲームになっていて、<b>なるべく正解にたどり着かせたくないCPUと対戦する</b>というルールになっています。
+        どのような対戦要素があるかというと、通常のポケモンWordleでは予めポケモンの名前が決まっていますが、
         このゲームでは相手はプレイヤーの<b>予想を見た上で、</b>これまでのパネルの結果と<span style="color:red"><b>矛盾しない範囲で次々と正解を変え、
         なるべく少ない情報しか出さないように</b></span>パネルの結果を出してきます。
         すでに表示された回答やパネルの結果が変わることはありません。<br>
         <br>
-        原作の<a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a>および<a href="https://wordle.mega-yadoran.jp/">ポケモンWordle</a>と違って、
+        CPUの戦略を乗り越え、正解に辿り着くことができるでしょうか？<br>
+        <br>
+        このゲームでは原作の<a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a>および<a href="https://wordle.mega-yadoran.jp/">ポケモンWordle</a>と違って、
         好きな回数だけポケモンの名前を予想することができます。
         正解候補のポケモンはソード・シールドまでに登場する5文字のポケモン、
         予想として使えるのはソード・シールドまでに登場する5文字以内の全てのポケモンです。<br>
         <br>
         このゲームは<a href="https://qntm.org/">qntm</a>さん作のWordleのadversarial版<a href="https://qntm.org/files/absurdle/absurdle.html">Absurdle</a>から着想を得ています。<br>
         <br>
+        <button class="start-game-button" onClick="clickHelp()">ゲームをはじめる</button>
         <button class="twitter-share-button" onClick="share_twitter()">twitterでシェアする</button><br>
         <br>
-        作者：<a href="https://woodrush.github.io/">Woodrush</a> (Hikaru Ikuta)
+        <button class="cookie-button" onClick="set_nomessage_cookie()">このメッセージを今後最初に表示しない（Cookie使用）</button>
+        <button class="cookie-button" onClick="delete_cookie()">このページのCookieの削除</button><br>
+        <br>
+        作者：<a href="https://woodrush.github.io/">Woodrush</a>
       </div>
     </div>
     <div id="settings-container" style="display:none;">
