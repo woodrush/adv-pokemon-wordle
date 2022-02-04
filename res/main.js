@@ -9,7 +9,7 @@ var feedback_history = [];
 var screen_state = "game";
 
 var FEEDBACK_CLEARED = "GGGGG";
-var game_cleared = false;
+var game_finished = false;
 
 var modedict = {
     "hard": false,
@@ -60,13 +60,19 @@ function if_enter(str) {
         console.log(feedback);
         console.log(feedback_keystate);
         update_box_row_color(feedback);
-        add_box_row();
         feedback_history.push(feedback);
 
         update_keyboard_color(feedback_keystate);
 
+        if (modedict["ultrahard"] && !current_pokedex.includes(ultrahard_goal)) {
+            game_finished = true;
+            document.getElementById("ultrahard-fail-container").style.display = "block";
+            return true;
+        }
+        add_box_row();
+
         if (feedback == FEEDBACK_CLEARED) {
-            game_cleared = true;
+            game_finished = true;
             show_results();
         }
         return true;
@@ -77,7 +83,7 @@ function if_enter(str) {
 }
 
 function typekey(key) {
-    if (game_cleared) {
+    if (game_finished) {
         return;
     }
     if (key == "bs") {
@@ -277,7 +283,7 @@ function show_results() {
 }
 
 function textbox_onkey(e) {
-    if (game_cleared) {
+    if (game_finished) {
         return;
     }
     let input_text = document.getElementById("input_text");
@@ -334,6 +340,9 @@ function click_mode(mode) {
 
 function set_ultrahard_goal() {
     ultrahard_goal = current_pokedex[Math.floor(Math.random() * current_pokedex.length)];
-    let goaldom = document.getElementById("ultrahard-goal");
-    goaldom.innerHTML = ultrahard_goal;
+
+    let goaldoms = document.querySelectorAll(".ultrahard-goal");
+    goaldoms.forEach(element => {
+        element.innerHTML = ultrahard_goal;
+    });
 }
