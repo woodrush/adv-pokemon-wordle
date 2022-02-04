@@ -282,8 +282,11 @@ function clickSettings() {
 }
 
 function show_results() {
-    const result_container = document.getElementById("result-container");
-    result_container.style.display = "block";
+    document.getElementById("result-container").style.display = "block";
+    document.getElementById("result-turns").innerHTML = currow;
+    if (modedict["ultrahard"]) {
+        document.getElementById("result-ultrahard-message").style.display = "block";
+    }
 }
 
 function textbox_onkey(e) {
@@ -303,7 +306,11 @@ function textbox_onkey(e) {
 }
 
 function tweet_result() {
-    let ret_text = "後出しポケモンWordleを" + currow + "手でクリアしました。%0A"
+    let ret_text = "後出しポケモンWordle";
+    if (modedict["ultrahard"]) {
+        ret_text = ret_text + "のウルトラハードモード";
+    }
+    ret_text = ret_text + "を" + currow + "手でクリアしました。%0A"
     const feedback2emoji = {
         "G": "🟩",
         "Y": "🟨",
