@@ -11,6 +11,11 @@ var screen_state = "game";
 var FEEDBACK_CLEARED = "GGGGG";
 var game_cleared = false;
 
+var modedict = {
+    "hard": false,
+    "ultrahard": false,
+}
+
 function toggleKeyboard() {
     const keyboard_0 = document.getElementById("keyboard-0");
     const keyboard_1 = document.getElementById("keyboard-1");
@@ -235,16 +240,32 @@ function init() {
 }
 
 function clickHelp() {
+    const cur_container = document.getElementById(screen_state + "-container");
     const game_container = document.getElementById("game-container");
     const help_container = document.getElementById("help-container");
-    if (screen_state == "game") {
-        game_container.style.display = "none";
-        help_container.style.display = "block";
-        screen_state = "help";
-    } else {
+    if (screen_state == "help") {
         game_container.style.display = "block";
         help_container.style.display = "none";
         screen_state = "game";
+    } else {
+        cur_container.style.display = "none";
+        help_container.style.display = "block";
+        screen_state = "help";
+    }
+}
+
+function clickSettings() {
+    const cur_container = document.getElementById(screen_state + "-container");
+    const game_container = document.getElementById("game-container");
+    const settings_container = document.getElementById("settings-container");
+    if (screen_state == "settings") {
+        game_container.style.display = "block";
+        settings_container.style.display = "none";
+        screen_state = "game";
+    } else {
+        cur_container.style.display = "none";
+        settings_container.style.display = "block";
+        screen_state = "settings";
     }
 }
 
@@ -287,4 +308,18 @@ function tweet_result() {
     ret_text = ret_text + website_url;
 
     window.open("https://twitter.com/intent/tweet?text=" + ret_text, "_blank");
+}
+
+function click_mode(mode) {
+    if (currow > 0) {
+        window.alert("モード選択は1手目入力前に行って下さい。");
+        return;
+    }
+    let is_hard = document.getElementById("check-hard").checked;
+    let is_ultrahard = document.getElementById("check-ultrahard").checked;
+    modedict["hard"] = is_hard;
+    modedict["ultrahard"] = is_ultrahard;
+
+    let ultrahard_container = document.getElementById("ultrahard-container");
+    ultrahard_container.style.display = modedict["ultrahard"] ? "block" : "none";
 }

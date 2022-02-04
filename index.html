@@ -12,7 +12,7 @@
       <table>
         <tr>
           <td><div class="title"><span><b><span style="color:red">後出し</span>ポケモンWordle</b></span></div></td>
-          <td><button class="settings-key" onClick=""><b>⚙️</b></button></td>
+          <td><button class="settings-key" onClick="clickSettings()"><b>⚙️</b></button></td>
           <td><button class="help-key" onClick="clickHelp()"><b>？</b></button></td>
         </tr>
       </table>
@@ -23,6 +23,12 @@
           <button class="help-key" onClick="clickHelp()"><b>？</b></button>
         </div>
       </div> -->
+    </div>
+      <div class="ultrahard-container" id="ultrahard-container" style="display:none;">
+        <div class="ultrahard-body">
+          ウルトラハードモード：<br>
+          正解が<b>サーナイト</b>となるように回答して下さい。
+        </div>
     </div>
     <div id="game-container">
       <div class="board-container">
@@ -181,17 +187,40 @@
         後出しポケモンWordleは、ポケモンWordleの<b>後出しを用いた超高難易度版</b>です。<br>
         <br>
         通常のポケモンWordleでは予めポケモンの名前が決まっていますが、
-        このゲームでは相手はプレイヤーの予想を見た上で、これまでのパネルの結果と<span style="color:red"><b>矛盾しない範囲で正解を変え、
-        なるべく少ない情報しか出さないように</b></span>パネルの結果を出してきます。<br>
+        このゲームでは相手はプレイヤーの<b>予想を見た上で、</b>これまでのパネルの結果と<span style="color:red"><b>矛盾しない範囲で次々と正解を変え、
+        なるべく少ない情報しか出さないように</b></span>パネルの結果を出してきます。
+        すでに表示された回答やパネルの結果が変わることはありません。<br>
         <br>
         原作の<a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a>および<a href="https://wordle.mega-yadoran.jp/">ポケモンWordle</a>と違って、
         好きな回数だけポケモンの名前を予想することができます。
         正解候補のポケモンはソード・シールドまでに登場する5文字のポケモン、
         予想として使えるのはソード・シールドまでに登場する5文字以内の全てのポケモンです。<br>
         <br>
-        このゲームはWordleのadversarial版<a href="https://qntm.org/files/absurdle/absurdle.html">Absurdle</a>から着想を得ています。<br>
+        このゲームは<a href="https://qntm.org/">qntm</a>さん作のWordleのadversarial版<a href="https://qntm.org/files/absurdle/absurdle.html">Absurdle</a>から着想を得ています。<br>
         <br>
         作者：<a href="https://woodrush.github.io/">Woodrush</a> (Hikaru Ikuta)
+      </div>
+    </div>
+    <div id="settings-container" style="display:none;">
+      <div class="settings-body">
+        設定<br>
+        <div>
+          <table>
+            <tr>
+              <td class="settings-td"><input type="checkbox" id="check-hard" onClick="click_mode('hard')"></td>
+              <td class="settings-td">
+                ハードモード：これまでに得られているヒントに合致するポケモンのみを回答することができます。
+              </td>
+            </tr>
+            <tr>
+              <td class="settings-td"><input type="checkbox" id="check-ultrahard" onClick="click_mode('ultrahard')"></td>
+              <td class="settings-td">
+                ウルトラハードモード：最初にお題のポケモンがランダムで提示されます。
+                <b>お題のポケモンが正解になるように</b>回答を行って下さい。
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   </body>
