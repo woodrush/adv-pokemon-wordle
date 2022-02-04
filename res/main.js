@@ -35,6 +35,27 @@ function update_box_row_text(s) {
             box.innerHTML = "";
         }
     }
+    curcol = s.length;
+}
+
+function if_enter(str) {
+    if (is_pokemon(str)) {
+        update_box_row_text(str);
+
+        let feedback = get_optimal_feedback_and_set_pokedex(str, current_pokedex);
+        let feedback_keystate = feedback2keystate(str, feedback);
+        console.log(current_pokedex.length);
+        console.log(feedback);
+        console.log(feedback_keystate);
+        update_box_row_color(feedback);
+        add_box_row();
+
+        update_keyboard_color(feedback_keystate);
+        return true;
+    } else {
+        window.alert(str + "は有効なポケモンの名前ではありません。");
+        return false;
+    }
 }
 
 function typekey(key) {
@@ -44,19 +65,7 @@ function typekey(key) {
             curcol -= 1;
         }
     } else if (key == "enter") {
-        if (is_pokemon(str)) {
-            let feedback = get_optimal_feedback_and_set_pokedex(str, current_pokedex);
-            let feedback_keystate = feedback2keystate(str, feedback);
-            console.log(current_pokedex.length);
-            console.log(feedback);
-            console.log(feedback_keystate);
-            update_box_row_color(feedback);
-            add_box_row();
-
-            update_keyboard_color(feedback_keystate);
-        } else {
-            window.alert(str + "は有効なポケモンの名前ではありません。");
-        }
+        if_enter(str);
         return;
     } else if (curcol > 4) {
         return;
@@ -200,6 +209,9 @@ function init() {
             current_pokedex.push(pokemon);
         }
     }
+
+    let input_text = document.getElementById("input-text");
+    input_text.addEventListener("keypress", textbox_onkey);
 }
 
 function clickHelp() {
@@ -214,4 +226,17 @@ function clickHelp() {
         help_container.style.display = "none";
         screen_state = "game";
     }
+}
+
+function textbox_onkey(e) {
+    let input_text = document.getElementById("input-text");
+    if (e.keyCode === 13) {
+        // str = input_text.value;
+        // update_box_row_text(str);
+        let result = if_enter(input_text.value);
+        if (result) {
+            input_text.value = "";
+        }
+    }
+    return false;
 }
