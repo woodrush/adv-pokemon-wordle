@@ -1,4 +1,4 @@
-# 後出しポケモンWordle
+# 後出しポケモンWordle - Adversarial Pokemon Wordle
 後出しポケモンWordleは、ポケモンWordleの**後出しを用いた超高難易度版**です。
 
 通常のポケモンWordleでは予めポケモンの名前が決まっていますが、
@@ -22,3 +22,8 @@
   - ウルトラハードモードでは、最初にお題のポケモンがランダムで提示され、
     **お題のポケモンが正解となるように**回答を行います。
     お題のポケモンが正解候補からいなくなってしまうとゲーム終了となります。
+
+## Credits
+このゲームは[qntm](https://qntm.org/)さん作のWordleのadversarial版
+[Absurdle](https://qntm.org/files/absurdle/absurdle.html)から着想を得ています。
+プログラムはHikaru Ikuta (@woodrush) が書いています。
