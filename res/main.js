@@ -74,11 +74,12 @@ function if_enter(str) {
             document.getElementById("ultrahard-fail-container").style.display = "block";
             return true;
         }
-        add_box_row();
 
         if (feedback == FEEDBACK_CLEARED) {
             game_finished = true;
             show_results();
+        } else {
+            add_box_row();
         }
         return true;
     } else {
@@ -284,7 +285,7 @@ function clickSettings() {
 
 function show_results() {
     document.getElementById("result-container").style.display = "block";
-    document.getElementById("result-turns").innerHTML = currow;
+    document.getElementById("result-turns").innerHTML = currow + 1;
     if (modedict["ultrahard"]) {
         document.getElementById("result-ultrahard-message").style.display = "block";
     }
@@ -311,7 +312,7 @@ function tweet_result() {
     if (modedict["ultrahard"]) {
         ret_text = ret_text + "のウルトラハードモード";
     }
-    ret_text = ret_text + "を" + currow + "手でクリアしました。%0A"
+    ret_text = ret_text + "を" + (currow + 1) + "手でクリアしました。%0A"
     const feedback2emoji = {
         "G": "🟩",
         "Y": "🟨",
