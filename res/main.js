@@ -81,6 +81,7 @@ function if_enter(str) {
             // add_box_row();
             currow += 1;
             curcol = 0;
+            str = "";
         }
         return true;
     } else {
