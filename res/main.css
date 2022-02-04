@@ -181,6 +181,11 @@ body {
 .settings-body {
     max-width: 45em;
     margin: 1em auto;
+    border-style: solid;
+    border-color:rgb(216, 216, 216);
+    border-width: 2px;
+    border-radius: 6px;
+    padding: 1em;
 }
 
 .board {
