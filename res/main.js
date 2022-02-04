@@ -78,10 +78,7 @@ function if_enter(str) {
             document.getElementById("ultrahard-fail-container").style.display = "block";
             return true;
         } else {
-            // add_box_row();
-            currow += 1;
-            curcol = 0;
-            str = "";
+            add_box_row();
         }
         return true;
     } else {
@@ -131,18 +128,18 @@ function update_box_row_color(feedback) {
 }
 
 function add_box_row() {
-    let board = document.getElementById("board");
-    let tr = document.createElement("tr");
+    // let board = document.getElementById("board");
+    // let tr = document.createElement("tr");
     currow += 1;
     curcol = 0;
     str = "";
-    for(let i=0; i<5; i++){
-        let td = document.createElement("td");
-        td.setAttribute("id", "box-" + currow + "-" + i);
-        td.setAttribute("class", "box-base box-empty");
-        tr.appendChild(td);
-    }
-    board.appendChild(tr);
+    // for(let i=0; i<5; i++){
+    //     let td = document.createElement("td");
+    //     td.setAttribute("id", "box-" + currow + "-" + i);
+    //     td.setAttribute("class", "box-base box-empty");
+    //     tr.appendChild(td);
+    // }
+    // board.appendChild(tr);
 }
 
 function update_keyboard_color(feedback_keystate) {
