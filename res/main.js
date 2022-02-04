@@ -69,17 +69,18 @@ function if_enter(str) {
 
         update_keyboard_color(feedback_keystate);
 
-        if (currow == 5) {
-            game_finished = true;
-            document.getElementById("ultrahard-fail-container").style.display = "block";
-            return true;
-        }
 
         if (feedback == FEEDBACK_CLEARED) {
             game_finished = true;
             show_results();
+        } else if (currow == 5) {
+            game_finished = true;
+            document.getElementById("ultrahard-fail-container").style.display = "block";
+            return true;
         } else {
-            add_box_row();
+            // add_box_row();
+            currow += 1;
+            curcol = 0;
         }
         return true;
     } else {
