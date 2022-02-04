@@ -69,7 +69,7 @@ function if_enter(str) {
 
         update_keyboard_color(feedback_keystate);
 
-        if (modedict["ultrahard"] && !current_pokedex.includes(ultrahard_goal)) {
+        if (currow == 5) {
             game_finished = true;
             document.getElementById("ultrahard-fail-container").style.display = "block";
             return true;
