@@ -307,12 +307,16 @@ function textbox_onkey(e) {
     return false;
 }
 
-function tweet_result() {
+function tweet_result(result) {
     let ret_text = "後出しポケモンWordle";
     if (modedict["ultrahard"]) {
         ret_text = ret_text + "のウルトラハードモード";
     }
-    ret_text = ret_text + "を" + (currow + 1) + "手でクリアしました。%0A"
+    if (result == "cleared") {
+        ret_text = ret_text + "を" + (currow + 1) + "手でクリアしました。%0A"
+    } else {
+        ret_text = ret_text + "をクリアできませんでした…%0A"
+    }
     const feedback2emoji = {
         "G": "🟩",
         "Y": "🟨",

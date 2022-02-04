@@ -85,7 +85,11 @@
 .fail-message {
     font-size: 1.2em;
     vertical-align: center;
-    margin-bottom: 0.5em;
+}
+
+.fail-message-2 {
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 .title {

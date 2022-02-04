@@ -49,7 +49,10 @@
           <div class="fail-message">
             <b>残念！</b>
           </div>
-          お題のポケモン<b><span class="ultrahard-goal"></span></b>は正解候補からいなくなってしまいました…
+          <div class="fail-message-2">
+            お題のポケモン<b><span class="ultrahard-goal"></span></b>は正解候補からいなくなってしまいました…
+          </div>
+          <button class="twitter-share-button" onClick="tweet_result('failed')">結果をツイートする</button>
         </div>
       </div>
       <div class="result-container" id="result-container" style="display:none;">
@@ -60,7 +63,7 @@
               <b><span id="result-turns"></span></b>手でクリアしました！<br>
               おめでとうございます！
             </div>
-            <button class="twitter-share-button" onClick="tweet_result()">結果をツイートする</button>
+            <button class="twitter-share-button" onClick="tweet_result('cleared')">結果をツイートする</button>
           </div>
       </div>
       <div class="keyboard-container">
