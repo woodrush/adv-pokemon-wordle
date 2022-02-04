@@ -8,6 +8,9 @@ var current_pokedex = [];
 var feedback_history = [];
 var screen_state = "game";
 
+var FEEDBACK_CLEARED = "GGGGG";
+var game_cleared = false;
+
 function toggleKeyboard() {
     const keyboard_0 = document.getElementById("keyboard-0");
     const keyboard_1 = document.getElementById("keyboard-1");
@@ -54,6 +57,11 @@ function if_enter(str) {
         feedback_history.push(feedback);
 
         update_keyboard_color(feedback_keystate);
+
+        if (feedback == FEEDBACK_CLEARED) {
+            game_cleared = true;
+            show_results();
+        }
         return true;
     } else {
         window.alert(str + "は有効なポケモンの名前ではありません。");
@@ -62,6 +70,9 @@ function if_enter(str) {
 }
 
 function typekey(key) {
+    if (game_cleared) {
+        return;
+    }
     if (key == "bs") {
         if (curcol > 0) {
             str = str.slice(0,curcol-1);
@@ -197,11 +208,11 @@ function get_optimal_feedback_and_set_pokedex(testword, H) {
     let maxlength = -1;
     let maxfeedback;
     let maxset;
-    for (const [k, v] of Object.entries(feedback_dict)) {
-        if (v.length > maxlength) {
-            maxlength = v.length;
-            maxfeedback = k;
-            maxset = v;
+    for (const [feedback, hset] of Object.entries(feedback_dict)) {
+        if (hset.length > maxlength || (hset.length == maxlength && feedback != FEEDBACK_CLEARED)) {
+            maxlength = hset.length;
+            maxfeedback = feedback;
+            maxset = hset;
         }
     }
     current_pokedex = maxset;
@@ -235,6 +246,11 @@ function clickHelp() {
         help_container.style.display = "none";
         screen_state = "game";
     }
+}
+
+function show_results() {
+    const result_container = document.getElementById("result-container");
+    result_container.style.display = "block";
 }
 
 function textbox_onkey(e) {

@@ -121,6 +121,11 @@
     margin: 1em auto;
     text-align: center;
     max-width: 30em;
+    border-color: #4cd447;
+    border-width: 2px;
+    border-style: solid;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
 }
 
 .help-container {
