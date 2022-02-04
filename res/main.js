@@ -313,6 +313,8 @@ function tweet_result() {
 function click_mode(mode) {
     if (currow > 0) {
         window.alert("モード選択は1手目入力前に行って下さい。");
+        let checkbox = document.getElementById("check-"+mode);
+        checkbox.checked = !checkbox.checked;
         return;
     }
     let is_hard = document.getElementById("check-hard").checked;
