@@ -214,33 +214,47 @@
       <div class="help-body">
         後出しポケモンWordleは、<b>CPUとの対戦型の高難易度版</b>ポケモンWordleです。<br>
         <br>
-        このゲームはCPUとの対戦型ゲームになっていて、<b>なるべく正解にたどり着かせたくないCPUと対戦する</b>というルールになっています。
-        どのような対戦要素があるかというと、通常のポケモンWordleでは予めポケモンの名前が決まっていますが、
-        このゲームでは相手はプレイヤーの<b>予想を見た上で、</b>これまでのパネルの結果と<span style="color:red"><b>矛盾しない範囲で次々と正解を変え、
-        なるべく少ない情報しか出さないように</b></span>パネルの結果を出してきます。
-        すでに表示された回答やパネルの結果が変わることはありません。<br>
-        <br>
-        CPUの戦略を乗り越え、正解に辿り着くことができるでしょうか？<br>
+        <div class="title">ルール</div>
+        <hr>
+        <ul class="rule-ul">
+          <li>
+            このゲームはCPUとの対戦型ゲームになっていて、<b>なるべく正解にたどり着かせたくないCPUと対戦する</b>というルールになっています。
+          </li>
+          <li>
+            相手はプレイヤーの<b>予想を見た上で、</b>これまでのヒントと<span style="color:red"><b>矛盾しない範囲で次々と正解を変え、
+              なるべく難しいヒントを出してきます。</b></span>
+          </li>
+          <li>
+            すでに表示された回答やヒントが変わることはありません。
+          </li>
+        </ul>
+        あなたはCPUの戦略を乗り越え、正解に辿り着くことができるでしょうか？<br>
         <br>
         このゲームでは原作の<a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a>および<a href="https://wordle.mega-yadoran.jp/">ポケモンWordle</a>と違って、
         好きな回数だけポケモンの名前を予想することができます。
         正解候補のポケモンはソード・シールドまでに登場する5文字のポケモン、
         予想として使えるのはソード・シールドまでに登場する5文字以内の全てのポケモンです。<br>
         <br>
-        このゲームは<a href="https://qntm.org/">qntm</a>さん作のWordleのadversarial版<a href="https://qntm.org/files/absurdle/absurdle.html">Absurdle</a>から着想を得ています。<br>
+        <button class="start-game-button" onClick="clickHelp()">ゲームをはじめる</button><br>
         <br>
-        <button class="start-game-button" onClick="clickHelp()">ゲームをはじめる</button>
         <button class="twitter-share-button" onClick="share_twitter()">twitterでシェアする</button><br>
         <br>
-        <button class="cookie-button" onClick="set_nomessage_cookie()">このメッセージを今後最初に表示しない（Cookie使用）</button>
-        <button class="cookie-button" onClick="delete_cookie()">このページのCookieの削除</button><br>
+        <button class="basic-button" onClick="set_nomessage_cookie()">このメッセージを今後最初に表示しない（Cookie使用）</button><br>
+        <br>
+        <br>
+        <div class="title">その他</div>
+        <hr>
+        このゲームは<a href="https://qntm.org/">qntm</a>さん作のWordleのadversarial版<a href="https://qntm.org/files/absurdle/absurdle.html">Absurdle</a>から着想を得ています。<br>
+        <br>
+        このページではCookieは「このメッセージを今後最初に表示しない」機能のためにクッキーを使用しています。
+        クッキーは<a href="#" onClick="clickSettings()">設定</a>から削除することができます。<br>
         <br>
         作者：<a href="https://woodrush.github.io/">Woodrush</a>
       </div>
     </div>
     <div id="settings-container" style="display:none;">
       <div class="settings-body">
-        設定<br>
+        対戦モード<br>
         <div>
           <table>
             <tr>
@@ -258,6 +272,15 @@
             </tr>
           </table>
         </div>
+        <br>
+        <br>
+        その他の設定<br>
+        <br>
+        <button class="basic-button" onClick="set_nomessage_cookie()">ロード時に説明メッセージを最初に表示しない（Cookie使用）</button><br>
+        <br>
+        <button class="basic-button" onClick="delete_cookie()">このページのCookieの削除</button><br>
+        <br>
+        <button class="basic-button" onClick="clickSettings()">ゲームに戻る</button>
       </div>
     </div>
   </body>

@@ -153,6 +153,9 @@ body {
     max-width: 30em;
 }
 
+.rule-ul {
+    padding-left: 1.2em;
+}
 .help-container {
     max-width: 45em;
     margin: 1em auto;
@@ -162,6 +165,11 @@ body {
 .help-body {
     max-width: 45em;
     margin: 1em auto;
+    border-style: solid;
+    border-color:rgb(216, 216, 216);
+    border-width: 2px;
+    border-radius: 6px;
+    padding: 1em;
 }
 
 .settings-container {
@@ -263,7 +271,7 @@ body {
     text-shadow: none;
     border-radius: 8px;
     border-style: solid;
-    padding: 8px 14px 8px 14px;
+    padding: 8px 12px 8px 12px;
 }
 
 .twitter-share-button:hover {
@@ -274,21 +282,23 @@ body {
     font-size: 1em;
     border-radius: 8px;
     border-style: solid;
-    padding: 8px 14px 8px 14px;
+    padding: 8px 12px 8px 12px;
+    border-color:rgb(216, 216, 216);
 }
 
 .start-game-button:hover {
     background-color: #ffffff;
 }
 
-.cookie-button {
+.basic-button {
     font-size: 1em;
     border-radius: 8px;
     border-style: solid;
     padding: 4px 7px 4px 7px;
+    border-color:rgb(216, 216, 216);
 }
 
-.cookie-button:hover {
+.basic-button:hover {
     background-color: #ffffff;
 }
 
