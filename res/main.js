@@ -52,6 +52,10 @@ function update_box_row_text(s) {
 
 function if_enter(str) {
     if (is_pokemon(str)) {
+        if (modedict["hard"] && !current_pokedex.includes(str)) {
+            window.alert("ハードモード：" + str + "は現在のヒントに合致しません。");
+            return true;
+        }
         update_box_row_text(str);
 
         let feedback = get_optimal_feedback_and_set_pokedex(str, current_pokedex);
